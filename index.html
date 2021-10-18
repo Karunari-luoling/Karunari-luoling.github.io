@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>学生自助平台</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/user.css?2.0">
+    <link href="css/theme/default/layer.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/layer.js"></script><link rel="stylesheet" href="http://hxphone.hx.cn/dianzidangan/js/theme/default/layer.css?v=3.1.1" id="layuicss-layer">
+    <script src="js/jquery.base64.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script>
+		function onBridgeReady() {
+			WeixinJSBridge.call('hideOptionMenu');
+		}
+
+		if (typeof WeixinJSBridge == "undefined") {
+			if (document.addEventListener) {
+				document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			} else if (document.attachEvent) {
+				document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+				document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			}
+		} else {
+			onBridgeReady();
+		}
+    </script>
+    <style type="text/css">
+        .fonts {
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head">
+            学生自助平台
+        </div>
+        <div class="body">
+            <div class="left">
+                <div class="photo">
+                    <img src="https://s1.ax1x.com/2020/04/18/JmgeFf.jpg" id="touxiang" style="border-radius:100px">
+                </div>
+                <div class="content">
+                    <label class="name" id="name">雷帅杰</label>
+                    <label class="account" id="account">2102426</label>
+                </div>
+            </div>
+
+            <div class="right">
+                <a style="margin-top: 5px;color: #000; text-align: right; background-color: rgb(39,160,245); width: 0px" id="goQRCode">
+                    <img src="images/dianzidangannew/erweima.png" alt="" style="left:54px">
+                    <img src="images/dianzidangannew/jiantou.png" alt="" style="left: 78px;height: 10px;width: 10px;top:10px">
+                </a>
+                <a style="margin-top:45px">
+                    <img src="images/dianzidangannew/iocn_bind.png" alt="">
+                    <span id="quxiaobangding">取消绑定</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <p>功能应用</p>
+        <ul>
+            <li>
+                <a id="zizhufuwu">
+                    <div>
+                        <img src="images/dianzidangannew/icon_1.png" alt="">
+                    </div>
+                    <span>自助服务</span>
+                </a>
+            </li>
+            <li>
+                <a id="xinshengbaodao">
+                    <div>
+                        <img src="images/dianzidangannew/baodao.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>新生报到</span>
+                </a>
+               
+            </li>
+            <li>
+                <a id="xueshengpingjiao">
+                    <div>
+                        <img src="images/dianzidangannew/icon_3.png" alt="">
+                    </div>
+                    <span>学生评价</span>
+                </a>
+            </li>
+            <li>
+                <a id="shehuishijian">
+                    <div>
+                        <img src="images/dianzidangannew/icon_4.png" alt="">
+                    </div>
+                    <span>社会实践</span>
+                </a>
+            </li>
+            <li>
+                <a id="biyeguanli">
+                    <div>
+                        <img src="images/dianzidangannew/icon_5.png" alt="">
+                    </div>
+                    <span>毕业管理</span>
+                </a>
+            </li>
+            <li>
+                <a id="JWJX">
+                    <div>
+                        <img src="images/dianzidangannew/icon_6.png" alt="">
+                    </div>
+                    <span>教务教学</span>
+                </a>
+            </li>
+            <li>
+                <a id="yiqingtibao">
+                    <div>
+                        <img src="images/dianzidangannew/icon_6.png" alt="">
+                    </div>
+                    <span>疫情提报</span>
+                </a>
+            </li>
+            <li>
+                <a id="jiankangdanan">
+                    <div>
+                        <img src="images/dianzidangannew/xinlizixun.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>健康档案</span>
+                </a>
+            </li>
+            <li>
+                <a id="hqfw">
+                    <div>
+                        <img src="images/dianzidangannew/icon_1_11.png" alt="" width="25px" height="25px">
+                    </div>
+                    <span>后勤服务</span>
+                </a>
+            </li>
+            <li>
+                <a id="xinlizixun">
+                    <div>
+                        <img src="images/dianzidangannew/jiankangdangan.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>心理咨询</span>
+                </a>
+            </li>
+            <li>
+                <a id="recommended">
+                    <div>
+                        <img src="images/dianzidangannew/renlian.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>学业导师</span>
+                </a>
+            </li>
+            <li>
+                <a id="richangkaoqin">
+                    <div>
+                        <img src="images/dianzidangannew/icon_2.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>日常考勤</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+
+		//采用正则表达式获取地址栏参数:
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]); return null;
+		};
+		//解密方法。没有过滤首尾空格，即没有trim
+		//加密可以加密N次，对应解密N次就可以获取明文
+		function decodeBase64(mi, times) {
+			var mingwen = "";
+			var num = 1;
+			if (typeof times == 'undefined' || times == null || times == "") {
+				num = 1;
+			} else {
+				var vt = times + "";
+				num = parseInt(vt);
+			}
+
+
+			if (typeof mi == 'undefined' || mi == null || mi == "") {
+
+			} else {
+				$.base64.utf8encode = true;
+				mingwen = mi;
+				for (var i = 0; i < num; i++) {
+					mingwen = $.base64.atob(mingwen);
+				}
+			}
+			return mingwen;
+		}
+		//加密可以加密N次，对应解密N次就可以获取明文
+		function encodeBase64(mingwen, times) {
+		    var code = "";
+		    var num = 1;
+		    if (typeof times == 'undefined' || times == null || times == "") {
+		        num = 1;
+		    } else {
+		        var vt = times + "";
+		        num = parseInt(vt);
+		    }
+
+		    if (typeof mingwen == 'undefined' || mingwen == null || mingwen == "") {
+
+		    } else {
+		        $.base64.utf8encode = true;
+		        code = mingwen;
+		        for (var i = 0; i < num; i++) {
+		            code = $.base64.btoa(code);
+		        }
+		    }
+		    return code;
+		};
+		var commonxh = GetQueryString("commonxh");
+		var openid = GetQueryString("opid");
+		var accesstoken = GetQueryString("access_token");
+		mxiaohao = decodeBase64(commonxh);
+		xiaohao = mxiaohao.split('*')[0];
+		if (xiaohao != null) {
+		    localStorage.setItem("Loginperson", encodeBase64(xiaohao));
+		    localStorage.setItem("processXiaohao", encodeBase64(xiaohao));
+		}
+		var commonsfid = GetQueryString("commonsfid");
+		window.localStorage.setItem("commonxh", commonxh);
+
+		window.localStorage.setItem("openid",openid);
+		window.localStorage.setItem("accesstoken",accesstoken);
+		window.localStorage.setItem("commonsfid",commonsfid);
+
+		$(function () {
+			jzzgc();
+		})
+
+		function jzzgc() {
+			$.post("handler/HX_DZDAxin.ashx?action=stumes&timestamp=" + new Date().getTime(), { xiaohao: xiaohao }, function (data) {
+				var arr = data.split("|");
+				$("#name").text(arr[1]);
+				$("#account").text(xiaohao);
+			})
+			//获取头像
+			$.post("handler/HX_DZDAxin.ashx?action=GetHeadImg&timestamp=" + new Date().getTime(), { xiaohao: xiaohao, accesstoken: accesstoken }, function (data) {
+				document.getElementById("touxiang").src = data;
+			})
+			//layer.alert("重要提示：近期，发现有不法分子以学校名义，用各种名目骗取学生钱财。学校再次强调，学校的各项费用均由学校财务统一收取，明令禁止任何人或机构向学生收取任何费用。收费明细每年开学期间在学校财务处，报到须知及学生自助平台上公示，请同学和家长们提高警惕，谨防上当受骗，特此提示！");
+		}
+		//取消绑定
+		$("#quxiaobangding").click(function () {
+			$.post("handler/HX_DZDAxin.ashx?action=QXBDXS&timestamp=" + new Date().getTime(), { xiaohao: xiaohao }, function (data) {
+				if (data == "success") {
+					var url = "CommonHandler.ashx";
+					window.location.href = url;
+
+				}
+			});
+		})
+		//自助服务
+		$("#zizhufuwu").click(function () {
+			window.location.href = "dianzidanganxin/service.html?commonxh=" + commonxh + "&openid=" + openid+"&guid="+Math.random();
+		})
+		//日常考勤
+		$("#richangkaoqin").click(function () {
+			window.location.href = "dianzidanganxin/daily.html?commonxh=" + commonxh + "&openid=" + openid + "&guid=" + Math.random();
+		})
+		//学生评教
+		$("#xueshengpingjiao").click(function () {
+		    window.location.href = "dianzidanganxin/teaching.html?commonxh=" + commonxh + "&openid=" + openid;
+		})
+		//社会实践
+		$("#shehuishijian").click(function () {
+			window.location.href = "dianzidanganxin/practice.html?commonxh=" + commonxh + "&openid=" + openid;
+		})
+		//跳转二维码
+		$("#goQRCode").click(function () {
+			window.location.href = "QRCode/html/bankCard.html?commonxh=" + commonxh + "&openid=" + openid + "&a=" + Math.random();
+		})
+		//自荐生
+		//$("#recommended").click(function () {
+		//    $.ajax({
+		//        url: "renlianshibie/handler/face_confirm.ashx?action=Sign&timestamp=" + Math.random(),
+		//        data: {  xiaohao: xiaohao },
+		//        type: "post",
+		//        success: function (data) {
+		//            if (data == "OK") {
+		//                window.location.href = "renlianshibie/html/face_confirm.html?commonxh=" + commonxh + "&openid=" + openid+"&signtime="+Math.random();
+		//            }
+		//            else{
+		//                alert("未在名单中,无需前往确认！")
+		//            }
+		//        }
+		//    })
+        //})
+		$("#recommended").click(function () {
+		    window.location.href = "http://hxphone.hx.cn/dianzidangan/tutor-management-project-Students/dist/index.html#/index?StudentNum=" + xiaohao + "&signtime=" + Math.random();
+		})
+		//后勤服务
+		$("#hqfw").click(function () {
+		    window.location.href = "dianzidanganxin/Logistics.html?commonxh=" + commonxh + "&openid=" + openid;
+		})
+		//新生报到
+		$("#xinshengbaodao").click(function () {
+		    window.location.href = "freshmanCheckinprocess/dist/index.html#/index";
+		})
+		//毕业管理
+		$("#biyeguanli").click(function () {
+		    //window.location.href = "dianzidanganxin/manage.html?commonxh=" + commonxh + "&openid=" + openid;
+
+			$.post("handler/HX_DZDAxin.ashx?action=BYS&timestamp=" + new Date().getTime(), { xiaohao: xiaohao }, function (data) {
+
+			    if (data == "success") {
+			        //alert("请耐心等待学院通知后再进行查看！")
+			        window.location.href = "dianzidanganxin/graduation.html?commonxh=" + commonxh + "&openid=" + openid;
+				}
+				else {
+					alert("往届毕业生请找相应班主任查询相关毕业手续！")
+				}
+			});
+		})
+		//教务教学
+		$("#JWJX").click(function () {
+			window.location.href = "dianzidanganxin/Educational.html?commonxh=" + commonxh + "&openid=" + openid + "&a=" + Math.random();
+		})
+		$("#yiqingtibao").click(function () {
+		    window.location.href = "YQGL/student/html/jsdsym.html?xh=" + xiaohao + "&signtime=" + Math.random();
+		})
+		//心里咨询
+		$("#xinlizixun").click(function () {
+		//判断是否同意同意书
+			$.post("xinlizixun/handler/handler.ashx?action=agreeOrNo&timestamp=" + new Date().getTime(), { xiaohao: "" }, function (data) {
+				if(data=="yes"){
+
+		window.location.href = "xinlizixun/html/Stupsychologicalindex.html?gh=" + xiaohao  + "&a=" + Math.random();
+		}
+		else{
+
+		window.location.href = "xinlizixun/html/Stupsychologicalagreement.html?gh=" + xiaohao  + "&a=" + Math.random();
+		}
+			});
+
+		})
+		//健康档案
+		$("#jiankangdanan").click(function () {
+			$.post("handler/HX_DZDAxin.ashx?action=getopenid&timestamp=" + new Date().getTime(), { xiaohao: xiaohao }, function (data) {
+				window.location.href = "jiangkangdangan/view/jkdaindex.html?gh=" + xiaohao + "&opid=" + data + "&a=" + Math.random();
+			});
+
+		})
+    </script>
+
+
+
+</body>
+</html>

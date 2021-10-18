@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>日常考勤</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/daily.css" />
+    <script src="/js/jquery-1.12.4.js"></script>
+    <script src="/js/jquery.base64.js"></script>
+</head>
+
+	<body>
+		<header>
+			<div class="head">
+				<span class="title" id="fanhui"></span>学生自助平台
+			</div>
+			<div class="body"><img src="/images/dianzidangannew/pic_3.png" alt="">
+			</div>
+		</header>
+		<div class="container">
+			<p>日常考勤</p>
+			<ul>
+				<li>
+					<a id="xueshengqiandao">
+						<div>
+							<img src="/images/dianzidangannew/icon_3_1.png" alt="" width="17px" height="22px">
+						</div>
+						<span>学生签课</span>
+					</a>
+				</li>
+				<li>
+					<a id="bwkq">
+						<div>
+							<img src="/images/dianzidangannew/icon_3_2.png" alt="" width="22px" height="21px">
+						</div>
+						<span>班委考勤</span>
+					</a>
+				</li>
+				<li>
+					<a id="qjsq" >
+						<div>
+							<img src="/images/dianzidangannew/icon_3_3.png" alt="" width="22px" height="21px">
+						</div>
+						<span>请假申请</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+        <script>
+            //采用正则表达式获取地址栏参数:
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]); return null;
+            };
+            //解密方法。没有过滤首尾空格，即没有trim
+            //加密可以加密N次，对应解密N次就可以获取明文
+            function decodeBase64(mi, times) {
+                var mingwen = "";
+                var num = 1;
+                if (typeof times == 'undefined' || times == null || times == "") {
+                    num = 1;
+                } else {
+                    var vt = times + "";
+                    num = parseInt(vt);
+                }
+
+
+                if (typeof mi == 'undefined' || mi == null || mi == "") {
+
+                } else {
+                    $.base64.utf8encode = true;
+                    mingwen = mi;
+                    for (var i = 0; i < num; i++) {
+                        mingwen = $.base64.atob(mingwen);
+                    }
+                }
+                return mingwen;
+            }
+            var commonxh = GetQueryString("commonxh");
+            var openid = GetQueryString("opid");
+            mxiaohao = decodeBase64(commonxh);
+            xiaohao = mxiaohao.split('*')[0];
+            var commonsfid = GetQueryString("commonsfid");
+            //学生签到
+            $("#xueshengqiandao").click(function () {
+                $.post("../handler/XFTS.ashx?action=XSDL&timestamp=" + new Date().getTime(), { Xiaohao: xiaohao }, function (data) {
+                    if (data != "0") {
+                        var commondacx = "../daokelvguanli2/xs_xueshengxinxi.html?commonxh=" + commonxh + '&commonsfid=' + commonsfid + "&openid=" + openid;
+                        window.location.href = commondacx;
+                    }
+                    else {
+                        alert("抱歉,您没有权限", "cancel");
+                    }
+                });
+
+            });
+            //班委考勤
+            $("#bwkq").click(function () {
+                var commonzzpt = "../Login_KQ_BanG.html?commonxh=" + commonxh;
+                window.location.href = commonzzpt;
+            });
+            //请假申请
+            $("#qjsq").click(function () {
+                //var commonzzpt = "Login_QJ_Stu.html?commonxh=" + commonxh;
+                var commonzzpt = "../html/Studenttakeleaveindex.html?xh=" + xiaohao+"&commonxh="+commonxh+"&opid="+openid+ "&guid=" + Math.random();
+                window.location.href = commonzzpt;
+            });
+            //返回
+            $("#fanhui").click(function () {
+                var commonzzpt = "../index.html?commonxh=" + commonxh +"&opid="+openid;
+                window.location.href = commonzzpt;
+            })
+        </script>
+	</body>
+
+</html>

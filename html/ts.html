@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/mui.min.js"></script>
+    <link href="/css/mui.min.css" rel="stylesheet">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        document.write('<script src="/js/commonjs.js?a=' + Math.random() + '"><\/script>');
+    </script><script src="/js/commonjs.js?a=0.663405514849192"></script>
+    <style>
+        .bj {
+            height: 140px;
+            background: linear-gradient(90deg, rgba(44, 61, 205, 1), rgba(40, 106, 227, 1));
+            width: 100%;
+        }
+
+        .zj {
+            height: 500px;
+            width: 92%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 5px 24px 0px rgba(35, 178, 248, 0.1);
+            border-radius: 15px;
+            margin-top: -50px;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .nr {
+            line-height: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav" style="background: #fff;">
+        <a class="mui-icon mui-icon-arrowleft" style="color:#000" onclick="fh()"></a>
+        <h1 class="mui-title" style="font-family:PingFang SC;
+        font-weight:500;font-size: 18px;
+        color:rgba(0,0,0,1);">温馨提示</h1>
+    </header>
+    <div class="bj">
+
+    </div>
+    <div class="zj">
+        <div style="font-family:PingFang SC;
+        font-weight:bold;font-size: 20px;
+        color:rgba(43,67,208,1);">
+            温馨提示
+        </div>
+        <div class="nr">
+
+            1. 学生提交请假时长不能超过30天；
+            <br>
+            2.学生提交续假时，请假时长是累加的；
+            <br>
+            3.学生每一次请假都要对应销假，请在请假结束时间之前提交续假申请或者提交销假申请，否则视为请假违纪；
+            <br>
+            4.学生请销假系统与门禁人脸识别对接，只有请假审核通过才允许出入；
+            <br>
+            5.尽量在请假时间结束之前返校，如若未及时返校，请及时提交续假或者请假申请，以免影响进出校园；
+
+
+
+
+        </div>
+    </div>
+
+<script>
+    var xh = GetQueryString("xh");
+
+    function fh() {
+        window.location.href = '/html/Studenttakeleaveindex.html?xh=' + xh + '&guid=' + Math.random();
+    }
+
+    function tza() {
+        window.location.href = '/html/Studentcancelleavedetail.html'
+    }
+</script>
+
+</body></html>

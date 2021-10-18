@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>自助服务</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css?1.0">
+    <link rel="stylesheet" type="text/css" href="/css/service.css?1.0">
+    <script src="/js/jquery-1.12.4.js"></script>
+    <script src="/js/jquery.base64.js"></script>
+    <script src="/js/mui/mui.min.js"></script>
+    <link href="/js/mui/mui.css" rel="stylesheet">
+    <script>
+        //采用正则表达式获取地址栏参数:
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        };
+        //解密方法。没有过滤首尾空格，即没有trim
+        //加密可以加密N次，对应解密N次就可以获取明文
+        function decodeBase64(mi, times) {
+            var mingwen = "";
+            var num = 1;
+            if (typeof times == 'undefined' || times == null || times == "") {
+                num = 1;
+            } else {
+                var vt = times + "";
+                num = parseInt(vt);
+            }
+
+
+            if (typeof mi == 'undefined' || mi == null || mi == "") {
+
+            } else {
+                $.base64.utf8encode = true;
+                mingwen = mi;
+                for (var i = 0; i < num; i++) {
+                    mingwen = $.base64.atob(mingwen);
+                }
+            }
+            return mingwen;
+        }
+        function encodeBase64(mingwen, times) {
+            var code = "";
+            var num = 1;
+            if (typeof times == 'undefined' || times == null || times == "") {
+                num = 1;
+            } else {
+                var vt = times + "";
+                num = parseInt(vt);
+            }
+
+            if (typeof mingwen == 'undefined' || mingwen == null || mingwen == "") {
+
+            } else {
+                $.base64.utf8encode = true;
+                code = mingwen;
+                for (var i = 0; i < num; i++) {
+                    code = $.base64.btoa(code);
+                }
+            }
+            return code;
+        };
+        var commonxh = GetQueryString("commonxh");
+        var openid = GetQueryString("openid");
+        mxiaohao = decodeBase64(commonxh);
+        xiaohao = mxiaohao.split('*')[0];
+        var commonsfid = GetQueryString("commonsfid");
+        $(document).ready(function () {
+            //基本信息
+            $("#xsxxxz").click(function () {
+                var commondacx = "../xueshengxinxi/xueshengxinxiindex.html?commonxh=" + commonxh + "&opid=" + openid+"&signtime="+Math.random();
+                window.location.href = commondacx;
+            })
+            //人脸采集
+            $("#renliancaiji").click(function () {
+                //$.ajax({
+                //    url: "../handler/zhongzhuan.ashx?action=rlcj&timestamp=" + Math.random(),
+                //    data: { xiaohao: xiaohao },
+                //    type: "post",
+                //    success: function (data) {
+                //        if (data == "OK") {
+                            var commondacx = "../renlianshibie/html/StuFaceimageindex.html?commonxh=" + commonxh + "&opid=" + openid+"&signtime="+Math.random();
+                            window.location.href = commondacx;
+                //        }
+                //    }
+                //})
+            })
+            //修改密码
+            $("#xiugaimima").click(function () {
+                var commondacx = "../stuFindPasswordXiuGai.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commondacx;
+            })
+            //图书查询
+            $("#tscx").click(function () {
+                var commonzzpt = "../TSCX.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commonzzpt;
+            });
+            //借阅自助
+            $("#jyzz").click(function () {
+                var commonzzpt = "../Login_tsg.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commonzzpt;
+            });
+            //一卡通查询
+            $("#yktye").click(function () {
+                //var commonzzpt = "../YKTCX.html?commonxh=" + commonxh + "&opid=" + openid;
+                var commonzzpt = "../yikatong.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commonzzpt;
+            });
+
+            //自考管理
+            $("#zikaoguanli").click(function () {
+                var commondacx = "../DZDA_ZKGL.html?xiaohao=" + commonxh + "&opid=" + openid;
+                window.location.href = commondacx;
+            });
+            //校园卡
+            $("#xiaoyuanka").click(function () {
+                var hkzy = "../XSXYK.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = hkzy;
+            });
+            //信访投诉
+            $("#xftuid").click(function () {
+                $.post("../handler/XFTS.ashx?action=XSDL&timestamp=" + new Date().getTime(), { Xiaohao: xiaohao }, function (data) {
+                    if (data > 0) {
+                        window.location.href = "../XFTSXS.html?commonxh=" + commonxh + "&opid=" + openid;
+                    }
+                    else {
+                        alert("抱歉,您没有权限", "cancel");
+                    }
+                });
+
+            });
+            //社团管理
+            $("#stglid").click(function () {
+                var commondacx = "../SheTuanZY.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commondacx;
+            });
+            //智能维修
+            $("#znwx").click(function () {
+                var commondacx = "http://mobile.hx.cn:8083/dianzidangan//BXSQX.html?commonxh=" + xiaohao + "&BSZD=" + "X";
+                window.location.href = commondacx;
+            });
+            //学籍异动
+            $("#xuejiyidong").click(function () {
+                var commondacx = "../dianzidanganxin/index.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commondacx;
+            })
+            //新生报到
+            $("#xinshengbaodao").click(function () {
+                //var commondacx = "dianzidanganxin/index.html?commonxh=" + commonxh;
+                //window.location.href = commondacx;
+            })
+            //勤工助学
+            $("#qgzxid").click(function () {
+                var commondacx = "../QGZXXXLR.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commondacx;
+            });
+            //费用明细
+            $("#FYMX").click(function () {
+                window.localStorage.removeItem("xiaohao");
+                window.localStorage.setItem("xiaohao", encodeBase64(xiaohao));
+                var commondacx = "http://hxphone.hx.cn/dianzidangan/oldstudentfee/dist/index.html#/home";
+               window.location.href = commondacx;
+
+            });
+            //返回
+            $("#fanhui").click(function () {
+                var commondacx = "/index.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commondacx;
+            });
+            //水电空充值
+            $("#shuidiankongchongzhi").click(function () {
+                //var commondacx = "../shuidiankong.html?commonxh=" + commonxh;
+                var commondacx = "http://mobile.hx.cn:8083/dianzidangan/shuidiankong.html?commonxh=" + commonxh;
+                window.location.href = commondacx;
+            });
+            //实岗实训
+            $("#shigangshixun").click(function () {
+                var commondacx = "../Login_Stuzongjie.html?commonxh=" + commonxh;
+                window.location.href = commondacx;
+            });
+            //技能培训
+            $("#jinengpeixun").click(function () {
+                var commondacx = "../jnz/html/index.html?xiaohao=" + commonxh;
+                window.location.href = commondacx;
+            });
+            //新闻通知
+            $("#xxtz").click(function () {
+                var commondacx = "http://hxphone.hx.cn/dianzidangan/zhuanshengben/html/xueshengtonggao.html";
+                window.location.href = commondacx;
+            });
+            //学历提升
+            $("#xuelitisheng").click(function () {
+                var commondacx = "../xlts/html/index.html?xiaohao=" + commonxh;
+                window.location.href = commondacx;
+            });
+
+            //教材查询http://192.168.25.163:8036/feedBackAboutTeaching.html??commonxh=MTkwMDU2OCo0MTA1MjcyMDAxMDIxOTU4MjM=&opid=owZnsv8_TkMPhnbtKkxphumqpy7M&openid=null
+            $("#bookqr").click(function () {
+                var commondacx = "../feedBackAboutTeaching.html?commonxh=" + commonxh + "&opid=" + openid;
+                window.location.href = commondacx;
+            })
+
+            //试岗实训 新
+            $("#shigangshixunnew").click(function () {
+                var xhnormal = decodeBase64(commonxh);
+                var xh = xhnormal.split('*')[0];
+                var commondacx = "../SGSX/HXChi_XGCenter.html?XH=" + xh;
+                window.location.href = commondacx;
+            })
+            $("#QualityPoints").click(function () {
+                var xhnormal = decodeBase64(commonxh);
+                var xh = xhnormal.split('*')[0];
+                $.ajax({
+                    url: "../handler/QualityPoints.ashx?action=into",
+                    type: 'post',
+                    data: { xh: xh },
+                    success: function (data) {
+                        if (data == "OK") {
+                            var commondacx = "QualityPoints.html?xh=" + commonxh + "&opid=" + openid;
+                            window.location.href = commondacx;
+                        }
+                        else
+                        {
+                            alert("非在校状态无法查看！", "cancel");
+                        }
+                    }
+                })
+
+            })
+            //教学反馈
+            $("#jiaoxuefankui").click(function () {
+                var xhnormal = decodeBase64(commonxh);
+                var xh = xhnormal.split('*')[0];
+                //判断该校号是否是教学信息员
+                $.post("../jiaoxuefankui/handler/Handler.ashx?action=panduanSF&timestamp=" + new Date().getTime(), { xiaohao: xh }, function (data) {
+                    if (data == "NO") {
+                        alert("抱歉,您没有权限", "cancel");
+                    }
+                    else {
+                        var commondacx = "../jiaoxuefankui/html/index.html?commonxh=" + commonxh + "&opid=" + openid;
+                        window.location.href = commondacx;
+                    }
+                })
+
+            })
+
+            //成绩查询
+            $("#gradeSearch").click(function () {
+                //判断学生是否是19级的学生
+                $.post("../StudentMark/handler.ashx?action=shifoushouquan&timestamp=" + new Date().getTime(), { xiaohao: xiaohao }, function (data) {
+                    if (data == "cunzai") {
+                        var commondacx = "../StudentMark/index.html?xh=" + xiaohao + "&guid=" + Math.random();
+                        window.location.href = commondacx;
+                    }
+                    else {
+                        //非19级的学生
+                        var btnArray = ['我知道了'];
+                        mui.confirm('请点击以下网址查看成绩<br/><a onclick="tiaozhuanwangzhi()" style="color:blue">http://xsgl.hx.cn</a><br/><br/><br/><a onclick="tiaozhuanshuomingi()" style="color:blue">操作说明</a>', '注意', btnArray, function (e) {
+
+                            if (e.index == 1) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        })
+                    }
+                });
+            })
+        })
+        //网址查看成绩
+        function tiaozhuanwangzhi() {
+            window.location.href = "http://xsgl.hx.cn";
+        }
+        //查看成绩操作说明
+        function tiaozhuanshuomingi() {
+            window.location.href = "http://doc.hx.cn/view/url?url=http://hxphone.hx.cn/dianzidangan/StudentMark/成绩系统查询步骤.pdf";
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <span class="title" id="fanhui"></span> 学生自助平台
+        </div>
+        <div class="body">
+            <img src="/images/dianzidangannew/pic_2.png" alt="">
+        </div>
+    </header>
+    <div class="container">
+        <p style="font-size:18px;margin-bottom:0px">自助服务</p>
+        <ul>
+            <li>
+                <a id="xsxxxz">
+                    <div>
+                        <img src="/images/dianzidangannew/icon_1_1.png" alt="" width="17px" height="22px">
+
+                    </div>
+                    <span>基本信息</span>
+                </a>
+            </li>
+            <li>
+                <a id="renliancaiji">
+                    <div>
+                        <img src="/images/dianzidangannew/renlian.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>人脸图片采集</span>
+                </a>
+            </li>
+            <li>
+                <a id="QualityPoints">
+                    <div style="background:#fff">
+                        <img src="/images/dianzidangannew/suzhifen.png" alt="" width="50px" height="50px" style="top:0;left:0">
+                    </div>
+                    <span>素质分查询</span>
+                </a>
+            </li>
+            <!--<li>
+
+
+                <a id="gradeSearch">
+                    <div>
+                        <img src="../images/dianzidangannew/chengjichaxun.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>成绩查询</span>
+                </a>
+            </li>-->
+            <li>
+                <a id="jyzz">
+                    <div>
+                        <img src="/images/dianzidangannew/icon_1_4.png" alt="" width="19px" height="22px">
+                    </div>
+                    <span>借阅自助</span>
+                </a>
+            </li>
+            <li>
+                <a id="xftuid">
+                    <div>
+                        <img src="/images/dianzidangannew/icon_1_9.png" alt="" width="26px" height="20px">
+                    </div>
+                    <span>信访投诉</span>
+                </a>
+            </li>
+            <li>
+                <a id="stglid">
+                    <div>
+                        <img src="/images/dianzidangannew/icon_1_10.png" alt="" width="20px" height="25px">
+                    </div>
+                    <span>社团联合</span>
+                </a>
+            </li>
+            <li>
+                <a id="qgzxid">
+                    <div>
+                        <img src="/images/dianzidangannew/icon_4_4.png" alt="" width="25px" height="25px">
+                    </div>
+                    <span>勤工俭学</span>
+                </a>
+            </li>
+            <li>
+                <a id="FYMX">
+                    <div>
+                        <img src="/images/dianzidangannew/icon_5_6.png" alt="" width="19px" height="22px">
+                    </div>
+                    <span>费用明细</span>
+                </a>
+            </li>
+            <li>
+                <a id="xxtz">
+                    <div>
+                        <img src="/images/dianzidangannew/XSPJ.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>新闻通知</span>
+                </a>
+            </li>
+            <li>
+                <a id="tscx">
+                    <div>
+                        <img src="/images/dianzidangannew/icon_1_3.png" alt="" width="19px" height="22px">
+                    </div>
+                    <span>图书查询</span>
+                </a>
+            </li>
+            <li>
+                <a id="xiugaimima">
+                    <div>
+                        <img src="/images/dianzidangannew/mima.png" alt="" width="50px" height="50px">
+                    </div>
+                    <span>修改密码</span>
+                </a>
+            </li>
+            <li>
+                <!--<a id="QualityPoints">
+                    <div style="background:#fff">
+                        <img src="../images/dianzidangannew/suzhifen.png" alt="" width="50px" height="50px" style="top:0;left:0">
+                    </div>
+                    <span>素质分查询</span>
+                </a>-->
+            </li>
+            <li></li>
+        </ul>
+    </div>
+
+
+
+</body></html>

@@ -1,0 +1,111 @@
+body {
+	background: #f2f2f2;
+}
+
+.head {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+	background: #fff;
+}
+
+.head span {
+	position: absolute;
+	left: 15px;
+	cursor: pointer;
+}
+
+span.title:after {
+	content: "";
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border: 1px solid #000;
+	border-style: solid none none solid;
+	transform: rotate(315deg);
+	transform-origin: 2px 1px;
+}
+
+.body img {
+	width: 100%;
+	height: auto;
+}
+
+.container {
+	margin: 13px 15px;
+	height: 440px;
+	background: #fff;
+	border-radius: 5px;
+}
+
+.container p {
+	padding-top: 15px;
+	padding-left: 6%;
+	font-weight: bolder;
+	color: #333;
+}
+
+.container ul {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+ul li {
+	flex: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+ul li a {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+ul li a div {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: relative;
+}
+
+ul li:nth-child(1) a div {
+	background: #43c9f6;
+}
+
+ul li:nth-child(2) a div {
+	background: #5d83f3;
+}
+
+ul li:nth-child(3) a div {
+	background: #feb437;
+}
+
+ul li:nth-child(1) a img {
+	position: absolute;
+	top: 14px;
+	left: 17px;
+}
+
+ul li:nth-child(2) a img {
+	position: absolute;
+	top: 14px;
+	left: 14px;
+}
+
+ul li:nth-child(3) a img {
+	position: absolute;
+	top: 14px;
+	left: 14px;
+}
+
+ul li a span {
+	font-size: 14px;
+	margin-top: 15px;
+	color: #666;
+}
