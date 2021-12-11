@@ -123,7 +123,7 @@
 </head>
 
 <body>
-<script>
+<script type="text/javascript">
 	    var date = new Date();
 	    var year = date.getFullYear();
 	    var month = date.getFMonth()+1;
@@ -131,8 +131,7 @@
 	    var day2 = date.getDate()+1;
 	    var time1 = "请假开始时间： "+year+"-"+month+"-"+day1+" 12:00:00";
 	    var time2 = year+"-"+month+"-"+day2;
-	var iv1=document.getElementById("time_one");
-	iv1.time_one=time1;
+	document.getElementById("time_one").innerText=time1;
 </script>
     <header class="mui-bar mui-bar-nav" style="background: #fff;">
         <a class="mui-icon mui-icon-arrowleft" style="color:#000" onclick="location='/html/Studenttakeleaveindex.html'"></a>
