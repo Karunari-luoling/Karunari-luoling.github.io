@@ -123,16 +123,6 @@
 </head>
 
 <body>
-<script type="text/javascript">
-	    var date = new Date();
-	    var year = date.getFullYear();
-	    var month = date.getMonth()+1;
-	    var day1 = date.getDate();
-	    var day2 = date.getDate()+1;
-	    var time1 = "请假开始时间： "+year+"-"+month+"-"+day1+" 12:00:00";
-	    var time2 = year+"-"+month+"-"+day2;
-	document.getElementById("time_one").innerText=time1;
-</script>
     <header class="mui-bar mui-bar-nav" style="background: #fff;">
         <a class="mui-icon mui-icon-arrowleft" style="color:#000" onclick="location='/html/Studenttakeleaveindex.html'"></a>
         <h1 class="mui-title" style="font-family:PingFang SC;
@@ -167,5 +157,14 @@
 
     <div class="fx" onclick="location='/html/qjsq/Studentleaveapply.html'"> + 新增请假</div>
 
-
+<script type="text/javascript">
+	    var date = new Date();
+	    var year = date.getFullYear();
+	    var month = date.getMonth()+1;
+	    var day1 = date.getDate();
+	    var day2 = date.getDate()+1;
+	    var time1 = "请假开始时间： "+year+"-"+month+"-"+day1+" 12:00:00";
+	    var time2 = year+"-"+month+"-"+day2;
+	document.getElementById("time_one").innerText=time1;
+</script>
 </body></html>
