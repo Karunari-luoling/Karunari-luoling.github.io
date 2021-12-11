@@ -10,6 +10,15 @@
     <script type="text/javascript">
         document.write('<script src="/js/commonjs.js?a=' + Math.random() + '"><\/script>');
         document.write('<script src="/js/Studentleaveindex.js?a=' + Math.random() + '"><\/script>');
+	    var date = new Date();
+	    var year = date.getFullYear();
+	    var month = date.getFMonth()+1;
+	    var day1 = date.getDate();
+	    var day2 = date.getDate()+1;
+	    var time1 = "请假开始时间： "+year+"-"+month+"-"+day1+" 12:00:00";
+	    var time2 = year+"-"+month+"-"+day2;
+	    var y=document.getElementById("time1");
+	    y.innerHTML=time1;
     </script><script src="/js/commonjs.js?a=0.9349443500273675"></script><script src="/js/Studentleaveindex.js?a=0.5903859584254576"></script>
     <style>
         .xh {
@@ -138,7 +147,7 @@
             <!--数据列表-->
             <!--第一个-->
             <ul class="mui-table-view ">
-            <li class="mui-table-view-cell"><div class="xh"><div class="mui-table-view-cells" id="a7f0d0e8-b30b-46fb-9eca-5152b02d6a2c" onclick="location='/html/qjsq/1.html'"><div class="xha"><div class="mc"><div class="xd"></div><span class="zt">事假-请假</span></div><div class="mct"><div style="display: inline-block;background:rgba(19,203,23,1);border-radius:5px;padding: 5px;color: #fff;" class="zt">通过</div><a class="mui-icon mui-icon-arrowright" style="color:#B1B1B1"></a></div></div><div class="xhb"><div class="zj">请假开始时间： 2021-12-11 12:00:00</div><div class="zj">请假结束时间： 2021-12-12 12:00:00</div><div class="zj">请假天数：
+            <li class="mui-table-view-cell"><div class="xh"><div class="mui-table-view-cells" id="a7f0d0e8-b30b-46fb-9eca-5152b02d6a2c" onclick="location='/html/qjsq/1.html'"><div class="xha"><div class="mc"><div class="xd"></div><span class="zt">事假-请假</span></div><div class="mct"><div style="display: inline-block;background:rgba(19,203,23,1);border-radius:5px;padding: 5px;color: #fff;" class="zt">通过</div><a class="mui-icon mui-icon-arrowright" style="color:#B1B1B1"></a></div></div><div class="xhb"><div id="time1" class="zj"></div><div class="zj">请假结束时间： 2021-12-12 12:00:00</div><div class="zj">请假天数：
            1天</div><div class="zj">申请时间： 2021-12-11 09:48:22</div></div></div><div class="xhc" style="float: right;padding-right: 20px;"></div>
            <!--按钮-->
             <div class="xhc" style="float: right;padding-right: 20px;"><button class="button-view" id="xu|4c989462-d404-4d3f-85e5-634f2a8b2e90" onclick="location='#'" style="background-color: #4768F3;color: #fff;">续假</button>  <button class="button-view" id="xiao|4c989462-d404-4d3f-85e5-634f2a8b2e90" style="background-color: #FD6B1B;color: #fff;" onclick="location='#'">销假</button></div>
