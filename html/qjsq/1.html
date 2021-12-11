@@ -71,7 +71,7 @@
         <div style="height: auto; width: 100%; margin-right: 14px" id="fujian"><div style="height: 45px; width: 45px; margin-right: 14px;float:left"><img class="pimg" src=" " style="height:40px;width:40px" value="background-color:white; border:0px;"></div></div>
     </div>
 
-    <div id="content"><div class="tjxx2"><div style="margin-bottom: 10px;"><label>审核人:<label>范力萌</label></label> <label style="margin-left: 45px;">通过</label></div><p>审核意见: 审核通过<label for=""> </label></p><p>审核时间: <label for="">2021-12-11 12:58:19</label></p></div> <div class="tjxx2">审核流程结束</div></div>
+    <div id="content"><div class="tjxx2"><div style="margin-bottom: 10px;"><label>审核人:<label>范力萌</label></label> <label style="margin-left: 45px;">通过</label></div><p>审核意见: 审核通过<label for=""> </label></p><p>审核时间: <label id="time_three" "for=""></label></p></div> <div class="tjxx2">审核流程结束</div></div>
 
 
     <style>
@@ -123,7 +123,7 @@
 	    var day2 = date.getDate()+1;
 	    var time1 = "请假开始时间： "+year+"-"+month+"-"+day1+" 12:00:00";
 	    var time2 = "请假结束时间： "+year+"-"+month+"-"+day2+" 12:00:00";
-	    var time3 = "审核时间: "+year+"-"+month+"-"+day2+" 12:58:19";
+	    var time3 = year+"-"+month+"-"+day2+" 12:58:19";
 	document.getElementById("ksrq").innerText=time1;
 	document.getElementById("qjjs").innerText=time2;
 	document.getElementById("time_three").innerText=time3;
