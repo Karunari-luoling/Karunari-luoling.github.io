@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/we-ui-city_picker_css/lib/weui.css" rel="stylesheet" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/we-ui-city_picker_css/jquery-weui/jquery-weui.css" rel="stylesheet" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/we-ui-city_picker_css/demos.css" rel="stylesheet" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/jquery.mobile.icons-1.4.5.css" rel="stylesheet" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/cssReset.css" rel="stylesheet" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/menu_css/component.css" rel="stylesheet" />
+    <link href="http://hxphone.hx.cn/dianzidangan/css/menu_css/default.css" rel="stylesheet" />
+    <script src="http://hxphone.hx.cn/dianzidangan/js/jquery.js"></script>
+    <script src="http://hxphone.hx.cn/dianzidangan/js/citypicker_js/jquery-weui.js"></script>
+    <script src="http://hxphone.hx.cn/dianzidangan/js/carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
+    <script src="http://hxphone.hx.cn/dianzidangan/themes/hammer.min.js"></script>
+    <script src="http://hxphone.hx.cn/dianzidangan/js/localResizeIMG/lrz.all.bundle.js"></script>
+    <script src="http://hxphone.hx.cn/dianzidangan/js/jquery.base64.js"></script>
+    <title>学生信息</title>
+    <style>
+        .fonts {
+            color: #000 !important;
+        }
+
+        .weui-cell__bd {
+            text-align: right
+        }
+
+        input {
+            text-align: right
+        }
+
+        select {
+            direction: rtl;
+        }
+
+        .weui-cell:before {
+            border-top: 1px solid #eaeaea !important
+        }
+
+        .dibuxian {
+            padding: 10px 15px;
+            position: relative;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="fonts">
+    <div data-role="page" id="page_hydl">
+        <div style="margin-top:5%;margin-bottom:5%;display:flex">
+            <div>
+                <img src="../images/xueshengxinxiImg/icon9.png" />
+            </div>
+            <span style="margin-top:2%;margin-left:0" id="showLeftPush">返回</span>
+            <span style="margin-top:2%;margin-left:25%">学生信息</span>
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_form" style="margin-bottom:30px;background:#F8F8F8">
+        <div class="weui-cells__title" style="display:flex">
+            <div><img src="../images/xueshengxinxiImg/icon01.png" /></div>
+            <div style="font-size:22px;color:#000000;margin-left:5%">基本信息</div>
+            <div style="font-size: 16px;color:#000000;margin-left: 28%;color:  blue;margin-top: 1%;" id="yikatong">一卡通图片</div>
+        </div>
+        <div class="weui-cells" style="background-color:#FFFFFF;margin:15px">
+            <div class="weui-cell dibuxian">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">校号</label></div>
+                <div class="weui-cell__bd" id="xiaohao" style="font-size:16px;color:#f16b03">
+                    201706230001
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">姓名</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id="xingming" style="font-size:16px;color:#f16b03" readonly>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">性别</label></div>
+				<div class="weui-cell__bd" style="display:flex">
+					<input class="weui-input" type="text" id="xingbie" style="font-size:16px;color:#f16b03" readonly>
+					<!--<select class="weui-select" name="select2" id="xingbie" style="font-size:16px;color:#000000">
+						<option value="男" style="text-align:right">男</option>
+						<option value="女" style="text-align:right">女</option>
+					</select>-->
+				</div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">身份证号</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" readonly="readonly" id="shenfenzhenghao" style="font-size:16px;color:#f16b03" placeholder="请输入身份证号">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">政治面貌</label></div>
+                <div class="weui-cell__bd" id="zhengzhimimao">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">国籍</label></div>
+                <div class="weui-cell__bd" id="guoji">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">民族</label></div>
+                <div class="weui-cell__bd" id="minzu">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">户籍地址</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id="hujidizhi" placeholder="请输入户籍地址" style="font-size:16px;color:000000" >
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">家庭住址</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id="jiatingzhuzhi" placeholder="请输入家庭住址" style="font-size:16px;color:#000000">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">联系方式</label></div>
+                <div class="weui-cell__bd" style="display:flex">
+                    <input class="weui-input" type="text" id="lianxifangshi" placeholder="请输入联系方式" style="font-size:16px;color:#000000">
+                    <img src="../images/xueshengxinxiImg/icon05.png" id="jinggaotu" style="margin-left:8px" />
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">QQ</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id="qq" placeholder="请输入QQ" style="font-size:16px;color:#000000">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">邮箱</label></div>
+                <div class="weui-cell__bd" style="display:flex">
+                    <input class="weui-input" type="text" id="youxiang" placeholder="请输入邮箱" style="font-size:16px;color:#000000">
+                    <img src="../images/xueshengxinxiImg/icon05.png" id="jinggaotu1" style="margin-left:8px" />
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">邮编</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id="youbian" placeholder="请输入邮编" style="font-size:16px;color:#000000">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">年级</label></div>
+                <div class="weui-cell__bd" id="nianji" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">学院</label></div>
+                <div class="weui-cell__bd" id="xueyuan" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">专业</label></div>
+                <div class="weui-cell__bd" id="zhuanye" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">专业方向</label></div>
+                <div class="weui-cell__bd" id="zhuanyefangxiang" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">学历层次</label></div>
+                <div class="weui-cell__bd" id="xuelicengci" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">班级</label></div>
+                <div class="weui-cell__bd" id="banji" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">在校状态</label></div>
+                <div class="weui-cell__bd" id="zaixiaozhuangtai" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">宿舍</label></div>
+                <div class="weui-cell__bd" id="sushe" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">班主任</label></div>
+                <div class="weui-cell__bd" id="banzhuren" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">班主任电话</label></div>
+                <div class="weui-cell__bd" id="banzhurendianhua" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">辅导员</label></div>
+                <div class="weui-cell__bd" id="fudaoyuan" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label" style="font-size:16px;color:#666666">辅导员联系方式</label></div>
+                <div class="weui-cell__bd" id="fudaoyuanlianxifangshi" style="font-size:16px;color:#f16b03">
+
+                </div>
+            </div>
+        </div>
+        <!--家庭信息-->
+        <div class="weui-cells__title" style="display:flex">
+            <div><img src="../images/xueshengxinxiImg/icon02.png" /></div>
+            <div style="font-size:22px;color:#000000;margin-left:5%">家庭信息</div>
+        </div>
+        <div class="weui-cells" style="background-color:#FFFFFF;margin:15px">
+            <div id="jiatingMessage">
+
+            </div>
+            <div class="weui-cell">
+                <button class="weui-btn weui-btn_primary" style="width:90%;background-color:#1780ce" id="addjiating">添加家庭信息</button>
+            </div>
+        </div>
+
+        <!--学校信息-->
+        <div class="weui-cells__title" style="display:flex">
+            <div><img src="../images/xueshengxinxiImg/icon03.png" /></div>
+            <div style="font-size:22px;color:#000000;margin-left:5%">学校信息</div>
+        </div>
+        <div class="weui-cells" style="background-color:#FFFFFF;margin:15px">
+            <div id="xuexiaoMessage">
+
+            </div>
+            <div class="weui-cell">
+                <button class="weui-btn weui-btn_primary" style="width:90%;background-color:#1780ce" id="addxuexiao">添加学校信息</button>
+            </div>
+        </div>
+
+        <!--保存-->
+        <div class="weui-cell">
+            <button class="weui-btn " style="width:100%;background-color:#0a81d0" id="addsave">保存</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $.showLoading("正在加载")
+        $("#jinggaotu").hide();//警告图
+        $("#jinggaotu1").hide();//警告图
+        //解密方法。没有过滤首尾空格，即没有trim
+        //加密可以加密N次，对应解密N次就可以获取明文
+        function decodeBase64(mi, times) {
+            var mingwen = "";
+            var num = 1;
+            if (typeof times == 'undefined' || times == null || times == "") {
+                num = 1;
+            } else {
+                var vt = times + "";
+                num = parseInt(vt);
+            }
+
+
+            if (typeof mi == 'undefined' || mi == null || mi == "") {
+
+            } else {
+                $.base64.utf8encode = true;
+                mingwen = mi;
+                for (var i = 0; i < num; i++) {
+                    mingwen = $.base64.atob(mingwen);
+                }
+            }
+            return mingwen;
+        }
+        //采用正则表达式获取地址栏参数:
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        var commonxh = GetQueryString("commonxh");
+        var bs = GetQueryString("bs");
+        var opid = GetQueryString("opid");
+        var mxiaohao = decodeBase64(commonxh);
+        var arrxiaohao = mxiaohao.split("*");//校号
+        //政治面貌
+        $.post("../handler/xueshengxinxi.ashx?action=ZhengZhiMianMao&timestamp=" + new Date().getTime(), {}, function (data) {
+            if (data != "") {
+                document.getElementById("zhengzhimimao").innerHTML = data;
+            }
+            //国籍
+            $.post("../handler/xueshengxinxi.ashx?action=GuoJi&timestamp=" + new Date().getTime(), {}, function (data) {
+
+                if (data != "") {
+                    document.getElementById("guoji").innerHTML = data;
+                }
+                //民族
+                $.post("../handler/xueshengxinxi.ashx?action=HanZu&timestamp=" + new Date().getTime(), {}, function (data) {
+                    if (data != "") {
+                        document.getElementById("minzu").innerHTML = data;
+                    }
+
+                    XSXXLoad();
+                })
+            })
+        })
+        $("#hujidizhi").change(function () {
+            var aa = $("#hujidizhi").val();
+            var patt1 = "^(北京|天津|上海|重庆|台湾|.+(省|自治区|特别行政区))(?:市)?.+(市|自治州|街道).+(区|县|旗|街道).*$";
+            console.log(aa.match(patt1));
+        })
+
+        //赋值
+        var xiaohao = arrxiaohao[0];
+        //校号
+        document.getElementById("xiaohao").innerHTML = xiaohao;
+        //学生信息
+        function XSXXLoad() {
+
+            $.post("../handler/xueshengxinxi.ashx?action=StuMes&timestamp=" + new Date().getTime(), { xiaohao: xiaohao }, function (data) {
+                if (data != "" && data != null) {
+                    var arr = data.split("|");
+                    //姓名
+                    $("#xingming").val(arr[0]);
+                    //性别
+                    $("#xingbie").val(arr[1]);
+                    //身份证号
+                    $("#shenfenzhenghao").val(arr[2]);
+                    //政治面貌
+                    $("#ZZMM").val(arr[3]);
+                    //国籍
+                    if (arr[4] != "") {
+                        $("#GJ").val(arr[4]);
+                    }
+                    else {
+                        $("#GJ").val("中国");
+                    }
+                    //民族
+                    $("#MZ").val(arr[5]);
+                    //户籍地址
+                    $("#hujidizhi").val(arr[6]);
+                    //家庭住址
+                    $("#jiatingzhuzhi").val(arr[7]);
+                    //联系方式
+                    $("#lianxifangshi").val(arr[8]);
+                    //QQ
+                    $("#qq").val(arr[9]);
+                    //邮箱
+                    $("#youxiang").val(arr[10]);
+                    //邮编
+                    $("#youbian").val(arr[11]);
+                    //年级
+                    document.getElementById("nianji").innerHTML = arr[12];
+                    //学院
+                    document.getElementById("xueyuan").innerHTML = arr[13];
+                    //专业
+                    document.getElementById("zhuanye").innerHTML = arr[14];
+                    //专业方向
+                    document.getElementById("zhuanyefangxiang").innerHTML = arr[15];
+                    //学历层次
+                    document.getElementById("xuelicengci").innerHTML = arr[16];
+                    //班级
+                    document.getElementById("banji").innerHTML = arr[17];
+                    //在校状态
+                    document.getElementById("zaixiaozhuangtai").innerHTML = arr[18];
+                    //宿舍
+                    document.getElementById("sushe").innerHTML = arr[19];
+                    //班主任
+                    document.getElementById("banzhuren").innerHTML = arr[20];
+                    //班主任电话
+                    document.getElementById("banzhurendianhua").innerHTML = arr[21];
+                    //辅导员
+                    document.getElementById("fudaoyuan").innerHTML = arr[22];
+                    //辅导员电话
+                    document.getElementById("fudaoyuanlianxifangshi").innerHTML = arr[23];
+                }
+                $.hideLoading();
+            })
+
+        }
+        $("#yikatong").click(function () {
+
+            //$.ajax({
+            //    url: "../handler/zhongzhuan.ashx?action=rlcj&timestamp=" + Math.random(),
+            //    data: { xiaohao: xiaohao },
+            //    type: "post",
+            //    success: function (data) {
+            //        if (data == "OK") {
+                        window.location.href = "../renlianshibie/html/StuFaceimageindex.html?commonxh=" + commonxh + "&signtime=" + Math.random();
+            //        }
+            //    }
+            //})
+          
+        })
+
+        //学生家庭信息
+        $.post("../handler/xueshengxinxi.ashx?action=StuJTMes&timestamp=" + new Date().getTime(), { xiaohao: xiaohao }, function (data) {
+            if (data != "" && data != null) {
+                document.getElementById("jiatingMessage").innerHTML = data;
+            }
+        })
+        //学生学校信息
+
+        $.post("../handler/xueshengxinxi.ashx?action=StuXXMes&timestamp=" + new Date().getTime(), { xiaohao: xiaohao }, function (data) {
+            if (data != "" && data != null) {
+                document.getElementById("xuexiaoMessage").innerHTML = data;
+            }
+
+        })
+        //跳转家庭编辑
+        function jiatingBJ(id) {
+            window.location.href = "../xueshengxinxi/xueshengxinxi_jiating.html?xiaohao=" + arrxiaohao[0] + "&jiatingID=" + id + "&commonxh=" + commonxh;
+        }
+        //跳转学校编辑
+        function xuexiaoBJ(id) {
+            window.location.href = "../xueshengxinxi/xueshengxinxi_xuexiao.html?xiaohao=" + arrxiaohao[0] + "&xuexiaoID=" + id + "&commonxh=" + commonxh;
+        }
+        //返回
+        $("#showLeftPush").click(function () {
+            if (bs != "1") {
+                window.location.href = "../dianzidanganxin/service.html?commonxh=" + commonxh;
+            }
+            else {
+                window.location.href = "../jiangkangdangan/view/jkdaindex.html?gh=" + arrxiaohao[0] + "&opid=" + opid + "&a=" + Math.random();
+            }
+        });
+        //跳转家庭
+        $("#addjiating").click(function () {
+            window.location.href = "../xueshengxinxi/xueshengxinxi_jiating.html?xiaohao=" + arrxiaohao[0] + "&jiatingID=" + "" + "&commonxh=" + commonxh;
+        })
+        //跳转学校
+        $("#addxuexiao").click(function () {
+            window.location.href = "../xueshengxinxi/xueshengxinxi_xuexiao.html?xiaohao=" + arrxiaohao[0] + "&xuexiaoID=" + "" + "&commonxh=" + commonxh;
+        })
+        //手机号值改变
+        $("#lianxifangshi").change(function () {
+            var lxfx = $("#lianxifangshi").val();
+            if (!lxfx.match(/^1[3|4|5|7|8|6|9][0-9]{9}$/)) {
+                $.toast("手机号格式不正确！请重新输入", "cancel");
+                document.getElementById("lianxifangshi").style.color = "#f90600";
+                $("#jinggaotu").show();//警告图
+                return false;
+            }
+            else {
+                document.getElementById("lianxifangshi").style.color = "#000";
+                $("#jinggaotu").hide();//警告图
+            }
+        })
+        //邮箱值改变
+        $("#youxiang").change(function () {
+            var youxiang = $("#youxiang").val();
+            if (!youxiang.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)) {
+                $.toast("邮箱格式不正确！请重新输入", "cancel");
+                document.getElementById("youxiang").style.color = "#f90600";
+                $("#jinggaotu1").show();//警告图
+                return false;
+            }
+            else {
+                document.getElementById("youxiang").style.color = "#000";
+                $("#jinggaotu1").hide();//警告图
+            }
+        })
+        //保存
+        $("#addsave").click(function () {
+            var hujidizhi = $("#hujidizhi").val();
+            //var reg = "^(北京|天津|上海|重庆|台湾|.+(省|自治区|特别行政区))(?:市)?.+(市|自治州|州|区|地区|镇).+(区|街道|号|道|县|旗|镇).*$";
+            //if (!hujidizhi.match(reg))
+            //{
+            //    $.toast("请填写详细的户口地址,省市县必填！", "cancel");
+            //    return false;
+            //}
+            var xingming = $("#xingming").val();
+            //if (xingming == "") {
+                //$.toast("请填写姓名", "cancel");
+               // return false;
+            //}
+            var xingbie = $("#xingbie").val();
+            //if (xingbie == "" || xingbie == null || xingbie == "null") {
+                //$.toast("请选择性别", "cancel");
+                //return false;
+            //}
+            var shenfenzhenghao = $("#shenfenzhenghao").val();
+           // if (shenfenzhenghao == "") {
+            //    $.toast("请填写身份证号", "cancel");
+             //   return false;
+           // }
+            var ZZMM = $("#ZZMM").val();
+            if (ZZMM == "" || ZZMM == null || ZZMM == "null") {
+                $.toast("请选择政治面貌", "cancel");
+                return false;
+            }
+            var GJ = $("#GJ").val();
+            if (GJ == "" || GJ == null || GJ == "null") {
+                $.toast("请选择国籍", "cancel");
+                return false;
+            }
+            var MZ = $("#MZ").val();
+            if (MZ == "" || MZ == null || MZ == "null") {
+                $.toast("请选择民族", "cancel");
+                return false;
+            }
+            if (hujidizhi == "") {
+                $.toast("请填写户籍地址", "cancel");
+                return false;
+            }
+            var jiatingzhuzhi = $("#jiatingzhuzhi").val();
+            if (jiatingzhuzhi == "") {
+                $.toast("请填写家庭住址", "cancel");
+                return false;
+            }
+            var lianxifangshi = $("#lianxifangshi").val();
+            if (lianxifangshi == "") {
+                $.toast("请填写联系方式", "cancel");
+                return false;
+            }
+            if (!lianxifangshi.match(/^1[3|4|5|7|8|6|9][0-9]{9}$/)) {
+                $.toast("手机号格式不正确！请重新输入", "cancel");
+                document.getElementById("lianxifangshi").style.color = "#f90600";
+                $("#jinggaotu").show();//警告图
+                return false;
+            }
+            var qq = $("#qq").val();
+            if (qq == "") {
+                $.toast("请填写联系QQ", "cancel");
+                return false;
+            }
+            var youxiang = $("#youxiang").val();
+            if (youxiang == "") {
+                $.toast("请填写邮箱", "cancel");
+                return false;
+            }
+            if (!youxiang.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)) {
+                $.toast("邮箱格式不正确！请重新输入", "cancel");
+                document.getElementById("youxiang").style.color = "#f90600";
+                $("#jinggaotu1").show();//警告图
+                return false;
+            }
+            var youbian = $("#youbian").val();
+            if (youbian == "") {
+                $.toast("请填写邮编", "cancel");
+                return false;
+            }
+            $.showLoading("正在保存");
+            $.post("../handler/xueshengxinxi.ashx?action=SaveXSXX&timestamp=" + new Date().getTime(), { xingming: xingming, xingbie: xingbie, shenfenzhenghao: shenfenzhenghao, ZZMM: ZZMM, GJ: GJ, MZ: MZ, hujidizhi: hujidizhi, jiatingzhuzhi: jiatingzhuzhi, lianxifangshi: lianxifangshi, qq: qq, youxiang: youxiang, youbian: youbian, xiaohao: xiaohao }, function (data) {
+
+                if (data == "success") {
+                    $.toast("保存成功", "success");
+
+                    XSXXLoad();
+                }
+                else {
+                    $.toast("保存失败", "cancel");
+                }
+            })
+        })
+    </script>
+</body>
+</html>
