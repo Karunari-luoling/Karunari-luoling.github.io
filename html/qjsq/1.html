@@ -26,49 +26,60 @@
         </h1>
     </header>
    
-    <form class="mui-input-group" style="margin-top: 55px;">
-        <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" style="border:5px solid #fff;" src=""> </div></div>
+   <form class="mui-input-group" style="margin-top: 55px;">
+        <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" style="border:5px solid #fff;" src="" /> </div></div>
         <div class="mui-input-row">
             <label style="text-align: left;">校号:</label>
-            <input id="xiaohao" readonly="" value="2103344">
+            <input id="xiaohao" value="2103344" readonly>
         </div>
         <div class="mui-input-row">
             <label style="text-align: left;">姓名:</label>
-            <input type="text" id="xingming" readonly="" value=鲁盼>
+            <input type="text" value="鲁盼" id="xingming" readonly>
         </div>
         <div class="mui-input-row">
             <label style="text-align: left;">请假类型:</label>
-            <input id="qingjialeixing" readonly="" value="事假">
+            <input id="qingjialeixing" value="事假" readonly>
         </div>
         <div class="mui-input-row">
             <label style="text-align: left;">请假开始日期:</label>
-		<input id="ksrq" readonly="" value="2022-03-04 10:50:00">
+            <input id="ksrq" value="2023-05-09 12:54:00" readonly>
         </div>
 
         <div class="mui-input-row">
             <label style="text-align: left;">请假结束时间:</label>
-		<input id="qjjs" readonly="" value="2022-03-04 20:50:00">
+            <input id="qjjs" value="2023-05-09 17:00:00" readonly>
         </div>
         <div class="mui-input-row">
             <label style="text-align: left;">请假时长:</label>
-            <input id="qjsc" readonly="" value="10小时">
+            <input id="qjsc" value="4小时6分钟" readonly>
         </div>
-        <div class="mui-input-row" style="justify-content: left;">
+        <div class="mui-input-row" style="justify-content: left;" class="aaa">
             <label style="text-align: left;">请假原因:</label>
-            <input id="qjsc" readonly="">
         </div>
         <div>
-            <textarea name="" id="qjyy" cols="30" rows="6" readonly="">外出有事</textarea>
+            <textarea name="" id="qjyy" cols="30" rows="6" readonly>身体不舒服，头晕</textarea>
+
         </div>
 
     </form>
-    <div class="mui-input-row" style="justify-content: left;margin-top: 20px;background-color: #fff;padding: 15px ; box-sizing: border-box;">
+    <div class="mui-input-row"
+         style="justify-content: left;margin-top: 20px;background-color: #fff;padding: 15px ; box-sizing: border-box;">
         <div style="text-align: left;margin-bottom:15px">请假附件</div>
-        <div style="height: auto; width: 100%; margin-right: 14px" id="fujian"><div style="height: 45px; width: 45px; margin-right: 14px;float:left"><img class="pimg" src=" " style="height:40px;width:40px" value="background-color:white; border:0px;"></div></div>
+        <div style="height: auto; width: 100%; margin-right: 14px" id="fujian">
+            <div style="height: 45px; width: 45px; margin-right: 14px;float:left"><img class="pimg" src="http://files.hx.cn//yqgl_uploadone/qingjia_info/67bc26a0-610c-4cbe-aa85-e3e8dcff6b2b.jpg" style="height:40px;width:40px"></div></div>
     </div>
 
-    <div id="content"><div class="tjxx2"><div style="margin-bottom: 10px;"><label>审核人:<label>范力萌</label></label> <label style="margin-left: 45px;">通过</label></div><p>审核意见: 审核通过<label for=""> </label></p><p>审核时间: <label id="time_three" "for="">2022-03-04 09:33:06</label></p></div> <div class="tjxx2">审核流程结束</div></div>
-
+    <div id="content">
+        <div class="tjxx2">
+            <div style="margin-bottom: 10px;">
+                <label>审核人:<label>范力萌</label></label> 
+                <label style="margin-left: 45px;">通过</label>
+            </div>
+                <p>审核意见: <label for=""></label></p>
+                <p>审核时间: <label for="">2023-05-09 13:35:56.105</label></p>
+        </div> 
+        <div class="tjxx2">审核流程结束</div>
+    </div>
 
     <style>
         .mui-input-group .mui-input-row {
